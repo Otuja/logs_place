@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+
+    .link{
+        @apply
+        text-orange-500 text-lg
+    }
+
+    .card{
+        @apply
+        flex flex-col h-96 px-5 gap-3 items-center justify-center rounded-xl border shadow-md
+    }
+
+    .swiper .swiper-pagination-bullet {
+        @apply bg-orange-400 opacity-70;
+      }
+    
+    .swiper .swiper-pagination-bullet-active {
+    @apply bg-orange-600 opacity-100;
+    }
+
+
+}
+
+

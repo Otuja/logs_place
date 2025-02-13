@@ -1,0 +1,72 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Logs Place{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="{% static 'images/Logs.png' %}" type="image/x-icon">
+    {% tailwind_css %}
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100">
+
+  <nav class="bg-gray-900 text-white py-4 ">
+    <div class="container mx-auto px-5 flex justify-between items-center md:px-20">
+      <!-- Logo -->
+      <a href="{% url 'products:social_accounts_list' %}" class="text-xl font-bold">
+        <img src="{% static 'images/Logs.png' %}" alt="log_img" class="h-[40px] md:h-[40px]">
+      </a>
+  
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <i class="ri-menu-5-line text-3xl text-orange-600 "></i>
+      </button>
+  
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex space-x-6">
+        <li><a href="{% url 'wallet_view' %}" class="hover:text-orange-600">Wallet</a></li>
+        <li><a href="{% url 'order_list' %}" class="hover:text-orange-600">Orders</a></li>
+    
+        {% if user.is_superuser %}
+            <li><a href="{% url 'products:add_social_account' %}" class="hover:text-orange-600">Add</a></li>
+        {% endif %}
+    
+        <form method="post" action="{% url 'logout' %}" class="inline">
+            {% csrf_token %}
+            <button type="submit" class="text-orange-600 hover:text-orange-700">Logout</button>
+        </form>
+    </ul>        
+    </div>
+  
+    <!-- Mobile Menu (Initially Hidden) -->
+    <div id="mobile-menu" class="hidden bg-gray-800 p-4 my-5 transition-all duration-300">
+      <a href="{% url 'wallet_view' %}" class="block hover:text-orange-600">Wallet</a>
+      <a href="{% url 'order_list' %}" class="block hover:text-orange-600">Orders</a>
+      {% if user.is_superuser %}
+        <a href="{% url 'products:add_social_account' %}" class="hover:text-orange-600">Add</a>
+      {% endif %}
+      <form method="post" action="{% url 'logout' %}" class="inline">
+        {% csrf_token %}
+        <button type="submit" class="text-orange-600 hover:text-orange-700">Logout</button>
+      </form>
+      
+    </div>
+  </nav>
+
+    <main class="flex-1 container mx-auto  py-5 md:py-10">
+        {% block content %}{% endblock %}
+    </main>
+
+
+
+    <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10">
+        <p>&copy; 2025 Logs Place. All Rights Reserved.</p>
+    </footer>
+    
+
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

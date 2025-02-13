@@ -1,0 +1,66 @@
+{% extends 'payments/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Wallet Overview -->
+<div class="md:flex md:space-x-6 px-5 md:px-20">
+    <!-- Wallet Card -->
+    <div class="bg-gradient-to-r from-orange-500 to-orange-700 text-white p-6 rounded-2xl shadow-lg w-full md:w-1/3 relative">
+        <h2 class="text-2xl font-semibold">Hi, {{ user.username }}</h2>
+        <p class="text-lg mt-2">Balance</p>
+
+        <!-- Wallet Balance with Masking Feature -->
+        <p id="walletBalance" class="text-3xl font-bold transition-all duration-300">₦{{ wallet.balance }}</p>
+
+        <!-- Hide/Show Button -->
+        <button id="toggleBalance" class="absolute top-6 right-6">
+            <i id="eyeIcon" class="ri-eye-line text-xl"></i>
+        </button>
+
+        <a href="{% url 'fund_wallet' %}" class="mt-4 block text-center bg-white text-orange-600 font-semibold py-2 px-4 rounded-full hover:bg-gray-200 transition">Fund Wallet</a>
+    </div>
+
+    <!-- Transactions List -->
+    <div class="w-full md:w-2/3 mt-6 md:mt-0">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Transactions</h3>
+        <div class="bg-white p-4 rounded-xl shadow">
+            {% for transaction in transactions %}
+            <div class="flex justify-between items-center py-3 border-b last:border-b-0">
+                <div>
+                    <p class="text-lg font-medium text-gray-800">₦{{ transaction.amount }}</p>
+                    <p class="text-sm text-gray-500">{{ transaction.status }} - {{ transaction.created_at }}</p>
+                </div>
+                <span class="px-3 py-1 text-sm rounded-full {% if transaction.status == 'completed' %} bg-green-100 text-green-600 {% else %} bg-gray-100 text-gray-600 {% endif %}">
+                    {{ transaction.status }}
+                </span>
+            </div>
+            {% empty %}
+            <p class="text-center text-gray-500">No transactions yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Toggle Balance Script -->
+<script>
+    document.getElementById('toggleBalance').addEventListener('click', function () {
+        let balance = document.getElementById('walletBalance');
+        let eyeIcon = document.getElementById('eyeIcon');
+
+        if (balance.dataset.hidden === "true") {
+            balance.innerText = `₦${balance.dataset.amount}`; // Show actual balance
+            balance.dataset.hidden = "false";
+            eyeIcon.classList.remove('ri-eye-off-line');
+            eyeIcon.classList.add('ri-eye-line');
+        } else {
+            balance.dataset.amount = balance.innerText.replace("₦", ""); // Store original balance
+            balance.innerText = "****"; // Replace with asterisks
+            balance.dataset.hidden = "true";
+            eyeIcon.classList.remove('ri-eye-line');
+            eyeIcon.classList.add('ri-eye-off-line');
+        }
+    });
+</script>
+
+
+{% endblock %}

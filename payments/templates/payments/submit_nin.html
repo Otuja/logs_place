@@ -1,0 +1,11 @@
+{% extends "payments/base.html" %}
+{% block content %}
+<h2>Submit Your NIN</h2>
+<p>To generate your virtual account, please provide your NIN.</p>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+{% endblock %}

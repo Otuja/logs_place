@@ -1,0 +1,18 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="{% static 'images/Logs.png' %}" type="image/x-icon">
+    {% tailwind_css %}
+</head>
+<body class="flex flex-col min-h-screen">
+
+        {% block content %}{% endblock %}
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

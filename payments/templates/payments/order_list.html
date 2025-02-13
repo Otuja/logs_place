@@ -1,0 +1,76 @@
+{% extends 'payments/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="px-5 md:px-20">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Your Orders</h2>
+
+    <!-- ✅ Messages Section -->
+    {% if messages %}
+        <div class="mb-4">
+            {% for message in messages %}
+                <div class="p-3 rounded-md text-white {% if message.tags == 'success' %}bg-green-500{% elif message.tags == 'error' %}bg-red-500{% else %}bg-gray-600{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Orders List -->
+    <div class="bg-white p-4 rounded-lg shadow-md">
+        {% if orders %}
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-3 text-left text-gray-600">Account</th>
+                            <th class="p-3 text-left text-gray-600">Platform</th>
+                            <th class="p-3 text-left text-gray-600">Transaction ID</th>
+                            <th class="p-3 text-left text-gray-600">Status</th>
+                            <th class="p-3 text-left text-gray-600">Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="p-3 text-gray-800 whitespace-nowrap overflow-hidden text-ellipsis max-w-[150px] md:max-w-[250px]" title="{{ order.account.username }}">
+                                {{ order.account.username }}
+                            </td>
+                            <td class="p-3 text-gray-800 whitespace-nowrap overflow-hidden text-ellipsis max-w-[120px]" title="{{ order.account.platform }}">
+                                {{ order.account.platform }}
+                            </td>
+                            <td class="p-3 text-gray-600">
+                                {% if order.transaction %}
+                                    <span class="text-blue-600">{{ order.transaction.id }}</span>
+                                {% else %}
+                                    <span class="text-gray-400">N/A</span>
+                                {% endif %}
+                            </td>
+                            <td class="p-3">
+                                <span class="px-3 py-1 text-sm rounded-full 
+                                    {% if order.status == 'paid' %}
+                                        bg-green-100 text-green-600
+                                    {% elif order.status == 'pending' %}
+                                        bg-yellow-100 text-yellow-600
+                                    {% else %}
+                                        bg-red-100 text-red-600
+                                    {% endif %}
+                                ">
+                                    {{ order.status|capfirst }}
+                                </span>
+                            </td>
+                            <td class="p-3 text-gray-500">
+                                {{ order.created_at|date:"M d, Y h:i A" }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p class="text-center text-gray-500">No orders found.</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
