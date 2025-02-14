@@ -28,524 +28,524 @@
 
 <!-- ====== header ====== -->
 
-<header x-data="{navbarOpen: false}" class="absolute sticky left-0 top-0 z-50 bg-white/90 w-full backdrop-blur">
-    <div class="mx-auto h-[90px] max-w-7xl px-8 md:px-6">
-        <div class="relative flex h-full items-center justify-between border-b border-slate-500/10">
-            <!-- logo -->
-            <div class="w-[15rem] max-w-full">
-                <a href="#">
-                    <img src="{% static 'images/Logs.png' %}" alt="logo" class="w-fit h-10">
-                </a>
+    <header x-data="{navbarOpen: false}" class="absolute sticky left-0 top-0 z-50 bg-white/90 w-full backdrop-blur">
+        <div class="mx-auto h-[90px] max-w-7xl px-8 md:px-6">
+            <div class="relative flex h-full items-center justify-between border-b border-slate-500/10">
+                <!-- logo -->
+                <div class="w-[15rem] max-w-full">
+                    <a href="#">
+                        <img src="{% static 'images/Logs.png' %}" alt="logo" class="w-fit h-10">
+                    </a>
+                </div>
+
+                <!-- menu -->
+                <div class="flex w-full items-center justify-between">
+                    <nav x-transition :class="!navbarOpen && 'hidden'" id="navbarCollapse" class="absolute right-0 top-[90px] w-full max-w-[350px] rounded-lg border border-orange-200 bg-white py-5 px-6 shadow-lg shadow-blue-400/5 transition-all lg:static lg:block lg:max-w-full lg:border-none lg:shadow-none lg:bg-transparent lg:px-0 lg:py-0">
+                        <ul class="flex flex-col justify-center gap-8 lg:flex-row">
+                            <li>
+                                <a href="#home" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">Home</a>
+                            </li>
+                            <li>
+                                <a href="#about" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">About</a>
+                            </li>
+                            <li>
+                                <a href="#services" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">Services</a>
+                            </li>
+                            <li>
+                                <a href="#how" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">How It works</a>
+                            </li>
+                            <li>
+                                <a href="#faq" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">FAQ</a>
+                            </li>
+                            <li>
+                                <a href="#contact" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">Contact</a>
+                            </li>
+                            <li class="md:hidden">
+                            <a href="{% url 'login' %}" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">Login</a>
+                            </li>
+                            <li class="md:hidden">
+                            <a href="{% url 'register' %}" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">Register</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- menu btn -->
+                <div class="flex gap-3">
+                <a href="{% url 'login' %}" class="mr-10 hidden rounded-md px-8 py-2.5 font-semibold text-orange-500 shadow-md shadow-blue-500/20 duration-200 hover:bg-orange-600 hover:text-white sm:block lg:mr-0">Login</a>
+                <a href="{% url 'register' %}" class="mr-10 hidden rounded-md bg-orange-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 duration-200 hover:bg-orange-600 sm:block lg:mr-0">Register</a>
+
+                <button @click="navbarOpen = !navbarOpen" :class="navbarOpen && 'navbarTogglerActive'" id="navbarToggler" class="block lg:hidden">
+                    <i class="ri-menu-5-line text-4xl text-orange-500"></i>
+                </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+    <!-- ====== END header ====== -->
+
+
+    <!-- ====== hero ====== -->
+
+    <section id="home" class="relative bg-white py-16">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+        <div class="flex flex-col-reverse items-center md:flex-row md:items-center">
+            <div class="hero__text w-full lg:w-6/12 text-center md:text-left">
+                <h1 class="text-slate-800 mb-4 text-3xl font-bold sm:text-4xl lg:text-[40px] xl:text-[42px]">
+                    Buy Verified Social Media <span class="text-orange-600">Accounts</span>
+                </h1>
+                <p class="text-slate-500 mb-6 max-w-md text-base">
+                    Instant access to high-quality, verified social media accounts. Safe, fast, and affordable only at Logs Place.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row sm:justify-start gap-4">
+                    <a href="{% url 'login' %}" class="w-full sm:w-auto rounded-md bg-orange-500 px-8 py-3 font-semibold text-white shadow-md hover:bg-orange-600 duration-200">
+                        Get Started
+                    </a>
+                    <a href="{% url 'register' %}" class="w-full sm:w-auto rounded-md border border-orange-500 px-8 py-3 font-semibold text-orange-500 shadow-md hover:bg-orange-500 hover:text-white duration-200">
+                        Register Now
+                    </a>
+                </div>
             </div>
 
-            <!-- menu -->
-            <div class="flex w-full items-center justify-between">
-                <nav x-transition :class="!navbarOpen && 'hidden'" id="navbarCollapse" class="absolute right-0 top-[90px] w-full max-w-[350px] rounded-lg border border-orange-200 bg-white py-5 px-6 shadow-lg shadow-blue-400/5 transition-all lg:static lg:block lg:max-w-full lg:border-none lg:shadow-none lg:bg-transparent lg:px-0 lg:py-0">
-                    <ul class="flex flex-col justify-center gap-8 lg:flex-row">
-                        <li>
-                            <a href="#home" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">Home</a>
-                        </li>
-                        <li>
-                            <a href="#about" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">About</a>
-                        </li>
-                        <li>
-                            <a href="#services" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">Services</a>
-                        </li>
-                        <li>
-                            <a href="#how" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">How It works</a>
-                        </li>
-                        <li>
-                            <a href="#faq" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">FAQ</a>
-                        </li>
-                        <li>
-                            <a href="#contact" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">Contact</a>
-                        </li>
-                        <li class="md:hidden">
-                          <a href="{% url 'login' %}" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">Login</a>
-                        </li>
-                        <li class="md:hidden">
-                          <a href="{% url 'register' %}" class="text-lg font-medium text-slate-700 duration-200 hover:text-orange-600 lg:text-base">Register</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <!-- menu btn -->
-            <div class="flex gap-3">
-              <a href="{% url 'login' %}" class="mr-10 hidden rounded-md px-8 py-2.5 font-semibold text-orange-500 shadow-md shadow-blue-500/20 duration-200 hover:bg-orange-600 hover:text-white sm:block lg:mr-0">Login</a>
-              <a href="{% url 'register' %}" class="mr-10 hidden rounded-md bg-orange-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 duration-200 hover:bg-orange-600 sm:block lg:mr-0">Register</a>
-
-              <button @click="navbarOpen = !navbarOpen" :class="navbarOpen && 'navbarTogglerActive'" id="navbarToggler" class="block lg:hidden">
-                <i class="ri-menu-5-line text-4xl text-orange-500"></i>
-              </button>
+            <div class="hero__img w-full lg:w-6/12 flex justify-center md:justify-end mt-6 md:mt-0">
+                <img src="{% static 'images/img4.jpg' %}" alt="hero section img" class="max-w-full h-auto">
             </div>
         </div>
     </div>
-</header>
+    </section>
 
 
-
-
-
-<!-- ====== END header ====== -->
-
-
-<!-- ====== hero ====== -->
-
-<section id="home" class="relative bg-white py-16">
-  <div class="mx-auto max-w-7xl px-8 md:px-6">
-      <div class="flex flex-col-reverse items-center md:flex-row md:items-center">
-          <div class="hero__text w-full lg:w-6/12 text-center md:text-left">
-              <h1 class="text-slate-800 mb-4 text-3xl font-bold sm:text-4xl lg:text-[40px] xl:text-[42px]">
-                  Buy Verified Social Media <span class="text-orange-600">Accounts</span>
-              </h1>
-              <p class="text-slate-500 mb-6 max-w-md text-base">
-                  Instant access to high-quality, verified social media accounts. Safe, fast, and affordable only at Logs Place.
-              </p>
-              
-              <div class="flex flex-col sm:flex-row sm:justify-start gap-4">
-                  <a href="{% url 'login' %}" class="w-full sm:w-auto rounded-md bg-orange-500 px-8 py-3 font-semibold text-white shadow-md hover:bg-orange-600 duration-200">
-                      Get Started
-                  </a>
-                  <a href="{% url 'register' %}" class="w-full sm:w-auto rounded-md border border-orange-500 px-8 py-3 font-semibold text-orange-500 shadow-md hover:bg-orange-500 hover:text-white duration-200">
-                      Register Now
-                  </a>
-              </div>
-          </div>
-
-          <div class="hero__img w-full lg:w-6/12 flex justify-center md:justify-end mt-6 md:mt-0">
-              <img src="{% static 'images/img4.jpg' %}" alt="hero section img" class="max-w-full h-auto">
-          </div>
-      </div>
-  </div>
-</section>
-
-
-<section class="pb-16">
-  <div class="mx-auto max-w-7xl px-8 md:px-6">
-      <!-- heading text -->
-      <div class="mb-5 sm:mb-10 text-center md:text-left">
-          <span class="font-medium text-orange-500">Our Features</span>
-          <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">What Makes Logs Place Stand Out</h1>
-      </div>
-      <!-- features img -->
-      <div class="md:flex md:justify-between md:gap-6 xl:gap-10 items-center">
-          <div class="mb-5 max-h-[500px] overflow-hidden rounded-lg md:mb-0 md:w-5/12">
-              <img src="{% static 'images/img2.jpg' %}" alt="Logs Place features" class="h-full scale-110 sm:w-full sm:object-cover">
-          </div>
-          <div class="md:w-7/12">
-              <div class="mb-12 flex flex-col">
-                  <p class="mb-3 text-slate-500">Logs Place offers instant access to high-quality, verified social media accounts. We provide a secure, seamless, and efficient buying experience.</p>
-                  <p class="mb-8 text-slate-500">Get verified accounts quickly, avoid long verification processes, and enjoy secure transactions. Whether you need accounts for business or personal use, we have you covered.</p>
-                  <a href="{% url 'login' %}" class="w-full rounded-md bg-orange-500 px-8 py-2.5 font-semibold text-white shadow-md hover:bg-orange-600 duration-200 md:w-max">Get Started</a>
-              </div>
-              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
-                    <i class="ri-shield-check-line text-4xl text-orange-500 mb-3"></i>
-                    <h3 class="text-lg font-bold text-slate-600">Secure Transactions</h3>
+    <section class="pb-16">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+        <!-- heading text -->
+        <div class="mb-5 sm:mb-10 text-center md:text-left">
+            <span class="font-medium text-orange-500">Our Features</span>
+            <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">What Makes Logs Place Stand Out</h1>
+        </div>
+        <!-- features img -->
+        <div class="md:flex md:justify-between md:gap-6 xl:gap-10 items-center">
+            <div class="mb-5 max-h-[500px] overflow-hidden rounded-lg md:mb-0 md:w-5/12">
+                <img src="{% static 'images/img2.jpg' %}" alt="Logs Place features" class="h-full scale-110 sm:w-full sm:object-cover">
+            </div>
+            <div class="md:w-7/12">
+                <div class="mb-12 flex flex-col">
+                    <p class="mb-3 text-slate-500">Logs Place offers instant access to high-quality, verified social media accounts. We provide a secure, seamless, and efficient buying experience.</p>
+                    <p class="mb-8 text-slate-500">Get verified accounts quickly, avoid long verification processes, and enjoy secure transactions. Whether you need accounts for business or personal use, we have you covered.</p>
+                    <a href="{% url 'login' %}" class="w-full rounded-md bg-orange-500 px-8 py-2.5 font-semibold text-white shadow-md hover:bg-orange-600 duration-200 md:w-max">Get Started</a>
                 </div>
-                <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
-                    <i class="ri-flashlight-line text-4xl text-orange-500 mb-3"></i>
-                    <h3 class="text-lg font-bold text-slate-600">Instant Delivery</h3>
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
+                        <i class="ri-shield-check-line text-4xl text-orange-500 mb-3"></i>
+                        <h3 class="text-lg font-bold text-slate-600">Secure Transactions</h3>
+                    </div>
+                    <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
+                        <i class="ri-flashlight-line text-4xl text-orange-500 mb-3"></i>
+                        <h3 class="text-lg font-bold text-slate-600">Instant Delivery</h3>
+                    </div>
+                    <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
+                        <i class="ri-customer-service-2-line text-4xl text-orange-500 mb-3"></i>
+                        <h3 class="text-lg font-bold text-slate-600">24/7 Support</h3>
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- ====== about ====== -->
+
+    <section id="about" class="py-16">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+        <div class="md:flex md:justify-between md:gap-6">
+            <div class="md:w-6/12">
+                <!-- heading text -->
+                <div class="mb-5 sm:mb-10">
+                    <span class="font-medium text-orange-500">About Us</span>
+                    <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Your Trusted Social Account Marketplace</h1>
                 </div>
-                <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
-                    <i class="ri-customer-service-2-line text-4xl text-orange-500 mb-3"></i>
-                    <h3 class="text-lg font-bold text-slate-600">24/7 Support</h3>
+                <p class="text-slate-500 mb-6">Logs Place is a secure and reliable platform for purchasing pre-verified social media accounts. Whether you need accounts for marketing, business, or personal use, we ensure fast delivery and guaranteed quality.</p>
+                <ul>
+                    <li class="mb-6 flex items-center">
+                        <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-orange-500 text-white">
+                            <i class="ri-lock-2-line"></i>
+                        </div>
+                        <p class="ml-4 max-w-md font-medium text-slate-600">Safe and secure transactions to ensure customer satisfaction.</p>
+                    </li>
+                    <li class="mb-6 flex items-center">
+                        <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-orange-500 text-white">
+                            <i class="ri-shopping-bag-line"></i>
+                        </div>
+                        <p class="ml-4 max-w-md font-medium text-slate-600">A wide selection of accounts across different platforms.</p>
+                    </li>
+                    <li class="mb-6 flex items-center">
+                        <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-orange-500 text-white">
+                            <i class="ri-mail-send-line"></i>
+                        </div>
+                        <p class="ml-4 max-w-md font-medium text-slate-600">Instant email delivery after successful purchase.</p>
+                    </li>
+                </ul>
+                <a href="{% url 'login' %}" class="w-full rounded-md bg-orange-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-orange-500/20 hover:bg-orange-600 duration-200 md:w-max">Get Started</a>
+            </div>
+
+            <!-- about img -->
+            <div class="mt-8 flex justify-center md:mt-0 md:w-5/12">
+                <img src="{% static 'images/img5.jpg' %}" alt="about img" class="max-h-[500px] md:max-h-max">
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- ====== service ====== -->
+
+    <section id="service" class="py-16">
+        <div class="mx-auto max-w-7xl px-8 md:px-6">
+            <!-- heading text -->
+            <div class="mb-10 text-center">
+                <span class="font-medium text-orange-500">Our Services</span>
+                <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">What We Offer</h1>
+                <p class="mx-auto max-w-2xl mt-2 text-slate-500">
+                    Get seamless access to verified social media accounts with instant delivery, secure transactions, and round-the-clock support.
+                </p>
+            </div>
+
+            <!-- box wrapper -->
+            <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 xl:gap-8">
+                <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
+                    <i class="ri-shield-check-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
+                    <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Secure Transactions</h4>
+                    <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">All purchases are protected with industry-standard security.</p>
                 </div>
-            </div>            
-          </div>
-      </div>
-  </div>
-</section>
+
+                <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
+                    <i class="ri-flashlight-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
+                    <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Instant Delivery</h4>
+                    <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Receive account details instantly after successful payment.</p>
+                </div>
+
+                <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
+                    <i class="ri-customer-service-2-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
+                    <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">24/7 Support</h4>
+                    <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Get round-the-clock assistance from our support team.</p>
+                </div>
+
+                <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
+                    <i class="ri-wallet-3-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
+                    <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Wallet System</h4>
+                    <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Easily fund your wallet for hassle-free transactions.</p>
+                </div>
+
+                <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
+                    <i class="ri-shield-star-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
+                    <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Verified Accounts</h4>
+                    <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Access only authentic and verified social media accounts.</p>
+                </div>
+
+                <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
+                    <i class="ri-exchange-dollar-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
+                    <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Affordable Pricing</h4>
+                    <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Get competitive prices with great value for your money.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-<!-- ====== about ====== -->
+    <!-- ====== how it works ====== -->
 
-<section id="about" class="py-16">
-  <div class="mx-auto max-w-7xl px-8 md:px-6">
-      <div class="md:flex md:justify-between md:gap-6">
-          <div class="md:w-6/12">
-              <!-- heading text -->
-              <div class="mb-5 sm:mb-10">
-                  <span class="font-medium text-orange-500">About Us</span>
-                  <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Your Trusted Social Account Marketplace</h1>
-              </div>
-              <p class="text-slate-500 mb-6">Logs Place is a secure and reliable platform for purchasing pre-verified social media accounts. Whether you need accounts for marketing, business, or personal use, we ensure fast delivery and guaranteed quality.</p>
-              <ul>
-                  <li class="mb-6 flex items-center">
-                      <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-orange-500 text-white">
-                          <i class="ri-lock-2-line"></i>
-                      </div>
-                      <p class="ml-4 max-w-md font-medium text-slate-600">Safe and secure transactions to ensure customer satisfaction.</p>
-                  </li>
-                  <li class="mb-6 flex items-center">
-                      <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-orange-500 text-white">
-                          <i class="ri-shopping-bag-line"></i>
-                      </div>
-                      <p class="ml-4 max-w-md font-medium text-slate-600">A wide selection of accounts across different platforms.</p>
-                  </li>
-                  <li class="mb-6 flex items-center">
-                      <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-orange-500 text-white">
-                          <i class="ri-mail-send-line"></i>
-                      </div>
-                      <p class="ml-4 max-w-md font-medium text-slate-600">Instant email delivery after successful purchase.</p>
-                  </li>
-              </ul>
-              <a href="{% url 'login' %}" class="w-full rounded-md bg-orange-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-orange-500/20 hover:bg-orange-600 duration-200 md:w-max">Get Started</a>
-          </div>
-
-          <!-- about img -->
-          <div class="mt-8 flex justify-center md:mt-0 md:w-5/12">
-              <img src="{% static 'images/img5.jpg' %}" alt="about img" class="max-h-[500px] md:max-h-max">
-          </div>
-      </div>
-  </div>
-</section>
-
-<!-- ====== service ====== -->
-
-<section id="service" class="py-16">
+    <section id="how" class="py-16">
     <div class="mx-auto max-w-7xl px-8 md:px-6">
         <!-- heading text -->
         <div class="mb-10 text-center">
-            <span class="font-medium text-orange-500">Our Services</span>
-            <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">What We Offer</h1>
+            <span class="font-medium text-orange-500">How it Works</span>
+            <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Seamless Transactions</h1>
             <p class="mx-auto max-w-2xl mt-2 text-slate-500">
-                Get seamless access to verified social media accounts with instant delivery, secure transactions, and round-the-clock support.
+            At Logs Place, purchasing social media accounts is simple and straightforward.
             </p>
         </div>
 
-        <!-- box wrapper -->
-        <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 xl:gap-8">
-            <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
-                <i class="ri-shield-check-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
-                <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Secure Transactions</h4>
-                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">All purchases are protected with industry-standard security.</p>
-            </div>
+        <div class="swiper">
+            <ul class="swiper-wrapper"> 
 
-            <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
-                <i class="ri-flashlight-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
-                <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Instant Delivery</h4>
-                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Receive account details instantly after successful payment.</p>
-            </div>
-
-            <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
-                <i class="ri-customer-service-2-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
-                <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">24/7 Support</h4>
-                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Get round-the-clock assistance from our support team.</p>
-            </div>
-
-            <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
-                <i class="ri-wallet-3-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
-                <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Wallet System</h4>
-                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Easily fund your wallet for hassle-free transactions.</p>
-            </div>
-
-            <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
-                <i class="ri-shield-star-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
-                <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Verified Accounts</h4>
-                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Access only authentic and verified social media accounts.</p>
-            </div>
-
-            <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
-                <i class="ri-exchange-dollar-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
-                <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Affordable Pricing</h4>
-                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Get competitive prices with great value for your money.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ====== how it works ====== -->
-
-<section id="how" class="py-16">
-  <div class="mx-auto max-w-7xl px-8 md:px-6">
-      <!-- heading text -->
-    <div class="mb-10 text-center">
-        <span class="font-medium text-orange-500">How it Works</span>
-        <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Seamless Transactions</h1>
-        <p class="mx-auto max-w-2xl mt-2 text-slate-500">
-          At Logs Place, purchasing social media accounts is simple and straightforward.
-        </p>
-    </div>
-
-    <div class="swiper">
-        <ul class="swiper-wrapper"> 
-
-            <li class="swiper-slide py-10">
-                <div class="flex flex-col md:flex-row items-center gap-6 bg-orange-500 bg-opacity-80 shadow-lg rounded-lg">
-                    <div class="relative basis-1/2 items-center pt-5">
-                        <img src="{% static 'images/step-1.png' %}" alt="Step 1" class="pt-5 w-full object-contain h-60 md:h-72">
-                        <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-lg font-bold px-5 py-3 rounded-full">
-                            1
-                        </span>
+                <li class="swiper-slide py-10">
+                    <div class="flex flex-col md:flex-row items-center gap-6 bg-orange-500 bg-opacity-80 shadow-lg rounded-lg">
+                        <div class="relative basis-1/2 items-center pt-5">
+                            <img src="{% static 'images/step-1.png' %}" alt="Step 1" class="pt-5 w-full object-contain h-60 md:h-72">
+                            <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-lg font-bold px-5 py-3 rounded-full">
+                                1
+                            </span>
+                        </div>
+                        <div class="basis-1/2 text-gray-600 px-5">
+                            <h3 class="text-2xl font-semibold mb-3 text-center md:text-start ">Choose an Account</h3>
+                            <p class="mb-10 max-w-2xl mx-auto text-center md:text-start ">Browse through our collection of verified social media accounts and select the one that suits your needs.</p>
+                        </div>
                     </div>
-                    <div class="basis-1/2 text-gray-600 px-5">
-                        <h3 class="text-2xl font-semibold mb-3 text-center md:text-start ">Choose an Account</h3>
-                        <p class="mb-10 max-w-2xl mx-auto text-center md:text-start ">Browse through our collection of verified social media accounts and select the one that suits your needs.</p>
+                </li>
+
+                <li class="swiper-slide py-10">
+                    <div class="flex flex-col md:flex-row items-center gap-6 bg-orange-500 bg-opacity-80 shadow-lg rounded-lg">
+                        <div class="relative basis-1/2 items-center pt-5">
+                            <img src="{% static 'images/step-2.png' %}" alt="Step 1" class="pt-5 w-full object-contain h-60 md:h-72">
+                            <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-lg font-bold px-5 py-3 rounded-full">
+                                2
+                            </span>
+                        </div>
+                        <div class="basis-1/2 text-gray-600 px-5">
+                            <h3 class="text-2xl font-semibold mb-3 text-center md:text-start">Make Payment</h3>
+                            <p class="mb-10 max-w-2xl mx-auto text-center md:text-start">Secure your account by making a payment through our trusted payment gateways with full buyer protection.</p>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
 
-            <li class="swiper-slide py-10">
-                <div class="flex flex-col md:flex-row items-center gap-6 bg-orange-500 bg-opacity-80 shadow-lg rounded-lg">
-                    <div class="relative basis-1/2 items-center pt-5">
-                        <img src="{% static 'images/step-2.png' %}" alt="Step 1" class="pt-5 w-full object-contain h-60 md:h-72">
-                        <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-lg font-bold px-5 py-3 rounded-full">
-                            2
-                        </span>
+                <li class="swiper-slide py-10">
+                    <div class="flex flex-col md:flex-row items-center gap-6 bg-orange-500 bg-opacity-80 shadow-lg rounded-lg">
+                        <div class="relative basis-1/2 items-center pt-5">
+                            <img src="{% static 'images/step-3.png' %}" alt="Step 1" class="pt-5 w-full object-contain h-60 md:h-72">
+                            <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-lg font-bold px-5 py-3 rounded-full">
+                                3
+                            </span>
+                        </div>
+                        <div class="basis-1/2 text-gray-600 px-5">
+                            <h3 class="text-2xl font-semibold mb-3 text-center md:text-start">Get Credentials</h3>
+                            <p class="mb-10 max-w-2xl mx-auto text-center md:text-start">Receive your account login details instantly and start using your new social media account right away.</p>
+                        </div>
                     </div>
-                    <div class="basis-1/2 text-gray-600 px-5">
-                        <h3 class="text-2xl font-semibold mb-3 text-center md:text-start">Make Payment</h3>
-                        <p class="mb-10 max-w-2xl mx-auto text-center md:text-start">Secure your account by making a payment through our trusted payment gateways with full buyer protection.</p>
-                    </div>
-                </div>
-            </li>
+                </li>
 
-            <li class="swiper-slide py-10">
-                <div class="flex flex-col md:flex-row items-center gap-6 bg-orange-500 bg-opacity-80 shadow-lg rounded-lg">
-                    <div class="relative basis-1/2 items-center pt-5">
-                        <img src="{% static 'images/step-3.png' %}" alt="Step 1" class="pt-5 w-full object-contain h-60 md:h-72">
-                        <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-lg font-bold px-5 py-3 rounded-full">
-                            3
-                        </span>
-                    </div>
-                    <div class="basis-1/2 text-gray-600 px-5">
-                        <h3 class="text-2xl font-semibold mb-3 text-center md:text-start">Get Credentials</h3>
-                        <p class="mb-10 max-w-2xl mx-auto text-center md:text-start">Receive your account login details instantly and start using your new social media account right away.</p>
-                    </div>
-                </div>
-            </li>
-
-        </ul>
-
-        <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== FAQ ====== -->
-
-<section id="faq" class="py-16">
-  <div class="mx-auto max-w-7xl px-8 md:px-6">
-      <!-- heading text -->
-      <div class="mb-5 sm:mb-10">
-          <span class="font-medium text-orange-500">Our FAQ</span>
-          <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Frequently Asked Questions</h1>
-      </div>
-
-      <!-- wrapper -->
-      <div class="md:flex md:justify-between md:gap-6">
-          <div class="mb-8 flex justify-center md:mb-0 md:w-5/12">
-              <img src="{% static 'images/img3.jpg' %}" alt="FAQ Image" class="max-h-[500px] md:max-h-max">
-          </div>
-
-          <div class="md:w-6/12">
-              <div x-data="{selected:1}">
-                  <ul>
-                      <li class="relative mb-5">
-                          <button type="button" class="w-full rounded-lg bg-orange-50 px-8 py-6 text-left" 
-                              @click="selected !== 1 ? selected = 1 : selected = null">
-                              <div class="flex items-center justify-between">
-                                  <h4 class="font-medium text-slate-600">How does Logs Place work?</h4>
-                                  <i class="ri-arrow-down-s-line text-2xl text-orange-500"></i>
-                              </div>
-                          </button>
-
-                          <div class="relative max-h-0 overflow-hidden rounded-b-lg bg-orange-50/30 transition-all duration-500" 
-                              x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
-                              <div class="p-6">
-                                  <p class="text-slate-500">
-                                      Logs Place provides verified social media accounts for purchase. Fund your wallet, select an account, pay, and receive the credentials instantly via email.
-                                  </p>
-                              </div>
-                          </div>
-                      </li>
-
-                      <li class="relative mb-5">
-                          <button type="button" class="w-full rounded-lg bg-orange-50 px-8 py-6 text-left" 
-                              @click="selected !== 2 ? selected = 2 : selected = null">
-                              <div class="flex items-center justify-between">
-                                  <h4 class="font-medium text-slate-600">How do I fund my wallet?</h4>
-                                  <i class="ri-arrow-down-s-line text-2xl text-orange-500"></i>
-                              </div>
-                          </button>
-
-                          <div class="relative max-h-0 overflow-hidden rounded-b-lg bg-orange-50/30 transition-all duration-500" 
-                              x-ref="container2" x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''">
-                              <div class="p-6">
-                                  <p class="text-slate-500">
-                                      You can fund your wallet by transferring money to a generated Monnify account. The funds will be credited once confirmed.
-                                  </p>
-                              </div>
-                          </div>
-                      </li>
-
-                      <li class="relative mb-5">
-                          <button type="button" class="w-full rounded-lg bg-orange-50 px-8 py-6 text-left" 
-                              @click="selected !== 3 ? selected = 3 : selected = null">
-                              <div class="flex items-center justify-between">
-                                  <h4 class="font-medium text-slate-600">Are the accounts safe to use?</h4>
-                                  <i class="ri-arrow-down-s-line text-2xl text-orange-500"></i>
-                              </div>
-                          </button>
-
-                          <div class="relative max-h-0 overflow-hidden rounded-b-lg bg-orange-50/30 transition-all duration-500" 
-                              x-ref="container3" x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''">
-                              <div class="p-6">
-                                  <p class="text-slate-500">
-                                      Yes, all accounts are verified and checked before being listed. However, we recommend changing the password after purchase for added security.
-                                  </p>
-                              </div>
-                          </div>
-                      </li>
-
-                      <li class="relative mb-5">
-                          <button type="button" class="w-full rounded-lg bg-orange-50 px-8 py-6 text-left" 
-                              @click="selected !== 4 ? selected = 4 : selected = null">
-                              <div class="flex items-center justify-between">
-                                  <h4 class="font-medium text-slate-600">What happens if I don’t receive my account details?</h4>
-                                  <i class="ri-arrow-down-s-line text-2xl text-orange-500"></i>
-                              </div>
-                          </button>
-
-                          <div class="relative max-h-0 overflow-hidden rounded-b-lg bg-orange-50/30 transition-all duration-500" 
-                              x-ref="container4" x-bind:style="selected == 4 ? 'max-height: ' + $refs.container4.scrollHeight + 'px' : ''">
-                              <div class="p-6">
-                                  <p class="text-slate-500">
-                                      If you do not receive the details after payment, please check your spam folder. If the issue persists, contact support for assistance.
-                                  </p>
-                              </div>
-                          </div>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </div>
-</section>
-
-
-
-<!-- ====== END FAQ ====== -->
-
-<!-- ====== Contact ====== -->
-
-<section id="contact" class="relative overflow-hidden py-16">
-  <div class="mx-auto max-w-7xl px-8 md:px-6">
-      <div class="flex flex-wrap lg:items-center">
-          <!-- Left Info -->
-          <div class="w-full px-4 md:w-1/2 xl:w-6/12">
-              <div class="mb-12 max-w-[570px] lg:mb-0">
-                  <span class="font-medium text-orange-500">Contact Us</span>
-                  <h1 class="mb-3 text-2xl font-bold text-slate-700 sm:text-3xl">Get in Touch with Logs Place</h1>
-                  <p class="text-slate-500 mb-8">Have questions or need support? Reach out to us for assistance with your account purchases.</p>
-                  
-                  <!-- Address -->
-                  <div class="mb-6 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-orange-500/10">
-                      <div class="mr-6 flex h-[50px] w-[50px] items-center justify-center rounded-full bg-orange-500 bg-opacity-10 text-orange-500">
-                          <i class="ri-map-pin-line text-2xl"></i>
-                      </div>
-                      <div class="w-full">
-                          <h4 class="mb-1 text-lg font-semibold text-slate-700">Our Location</h4>
-                          <p class="text-base text-slate-500">4236 Woodland Terrace, Sacramento, California</p>
-                      </div>
-                  </div>
-                  <!-- Phone -->
-                  <div class="mb-6 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-orange-500/10">
-                      <div class="mr-6 flex h-[50px] w-[50px] items-center justify-center rounded-full bg-orange-500 bg-opacity-10 text-orange-500">
-                          <i class="ri-phone-line text-2xl"></i>
-                      </div>
-                      <div class="w-full">
-                          <h4 class="mb-1 text-lg font-semibold text-slate-700">Phone Number</h4>
-                          <p class="text-base text-slate-500">(+1) 234 567 8912</p>
-                      </div>
-                  </div>
-                  <!-- Email -->
-                  <div class="mb-6 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-orange-500/10">
-                      <div class="mr-6 flex h-[50px] w-[50px] items-center justify-center rounded-full bg-orange-500 bg-opacity-10 text-orange-500">
-                          <i class="ri-mail-line text-2xl"></i>
-                      </div>
-                      <div class="w-full">
-                          <h4 class="mb-1 text-lg font-semibold text-slate-700">Email Address</h4>
-                          <p class="text-base text-slate-500">support@logsplace.com</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Right Image -->
-          <div class="w-full px-4 md:w-1/2 xl:w-6/12 items-center justify-center hidden md:block">
-              <img src="{% static 'images/img6.jpg' %}" alt="FAQ Image" class="w-full h-auto max-h-[500px] object-cover">
-          </div>
-      </div>
-  </div>
-</section>
-
-
-<!-- ====== footer ====== -->
-
-<footer class="bg-gray-900 text-gray-300 pt-16">
-  <div class="mx-auto max-w-7xl px-8 md:px-6">
-
-      <!-- Footer Top -->
-      <div class="container mx-auto gap-10 px-3 grid grid-cols-1 md:grid-cols-3  md:mb-10">
-        <!-- Column 1 -->
-        <div class="">
-            <h4 class="text-white text-2xl font-semibold mb-4">About Us</h4>
-            <p class="text-gray-400 leading-relaxed">
-                Logs Place is your trusted source for high-quality social media accounts. We ensure credibility, security, and fast delivery.
-            </p>
-        </div>
-
-        <!-- Column 2 -->
-        <div>
-            <h4 class="text-white text-2xl font-semibold mb-4">Quick Links</h4>
-            <ul class="space-y-3">
-                <li><a href="#home" class="hover:text-orange-500 transition-all">Home</a></li>
-                <li><a href="#about" class="hover:text-orange-500 transition-all">About</a></li>
-                <li><a href="#services" class="hover:text-orange-500 transition-all">Services</a></li>
-                <li><a href="#faq" class="hover:text-orange-500 transition-all">FAQ</a></li>
             </ul>
-        </div>
 
-        <!-- Column 3 -->
-        <div>
-            <h4 class="text-white text-2xl font-semibold mb-4">Contact Us</h4>
-            <ul class="space-y-3">
-                <li class="flex items-start gap-3">
-                    <i class="ri-map-pin-line text-orange-500 text-xl"></i>
-                    <span>123 Market Street, Lagos, Nigeria</span>
-                </li>
-                <li class="flex items-center gap-3">
-                    <i class="ri-mail-line text-orange-500 text-xl"></i>
-                    <span>info@logsplace.com</span>
-                </li>
-                <li class="flex items-center gap-3">
-                    <i class="ri-phone-line text-orange-500 text-xl"></i>
-                    <span>+234 814 310 7814</span>
-                </li>
-            </ul>
+            <div class="swiper-pagination"></div>
         </div>
     </div>
-      <!-- End Footer Top -->
+    </section>
 
-      <!-- Footer Bottom -->
-      <div class="flex flex-col justify-between border-t py-8 sm:flex-row">
-        <p class="text-gray-400">&copy; 2025 Logs Place. All Rights Reserved.</p>
-        <div class="flex justify-center gap-6 mt-4">
-            <a href="#" class="text-gray-400 hover:text-orange-500 text-2xl"><i class="ri-facebook-fill"></i></a>
-            <a href="#" class="text-gray-400 hover:text-orange-500 text-2xl"><i class="ri-twitter-x-line"></i></a>
-            <a href="#" class="text-gray-400 hover:text-orange-500 text-2xl"><i class="ri-instagram-fill"></i></a>
+    <!-- ====== FAQ ====== -->
+
+    <section id="faq" class="py-16">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+        <!-- heading text -->
+        <div class="mb-5 sm:mb-10">
+            <span class="font-medium text-orange-500">Our FAQ</span>
+            <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Frequently Asked Questions</h1>
         </div>
-      </div>
-      <!-- End Footer Bottom -->
 
-  </div>
-</footer>
+        <!-- wrapper -->
+        <div class="md:flex md:justify-between md:gap-6">
+            <div class="mb-8 flex justify-center md:mb-0 md:w-5/12">
+                <img src="{% static 'images/img3.jpg' %}" alt="FAQ Image" class="max-h-[500px] md:max-h-max">
+            </div>
+
+            <div class="md:w-6/12">
+                <div x-data="{selected:1}">
+                    <ul>
+                        <li class="relative mb-5">
+                            <button type="button" class="w-full rounded-lg bg-orange-50 px-8 py-6 text-left" 
+                                @click="selected !== 1 ? selected = 1 : selected = null">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="font-medium text-slate-600">How does Logs Place work?</h4>
+                                    <i class="ri-arrow-down-s-line text-2xl text-orange-500"></i>
+                                </div>
+                            </button>
+
+                            <div class="relative max-h-0 overflow-hidden rounded-b-lg bg-orange-50/30 transition-all duration-500" 
+                                x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                                <div class="p-6">
+                                    <p class="text-slate-500">
+                                        Logs Place provides verified social media accounts for purchase. Fund your wallet, select an account, pay, and receive the credentials instantly via email.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="relative mb-5">
+                            <button type="button" class="w-full rounded-lg bg-orange-50 px-8 py-6 text-left" 
+                                @click="selected !== 2 ? selected = 2 : selected = null">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="font-medium text-slate-600">How do I fund my wallet?</h4>
+                                    <i class="ri-arrow-down-s-line text-2xl text-orange-500"></i>
+                                </div>
+                            </button>
+
+                            <div class="relative max-h-0 overflow-hidden rounded-b-lg bg-orange-50/30 transition-all duration-500" 
+                                x-ref="container2" x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''">
+                                <div class="p-6">
+                                    <p class="text-slate-500">
+                                        You can fund your wallet by transferring money to a generated Monnify account. The funds will be credited once confirmed.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="relative mb-5">
+                            <button type="button" class="w-full rounded-lg bg-orange-50 px-8 py-6 text-left" 
+                                @click="selected !== 3 ? selected = 3 : selected = null">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="font-medium text-slate-600">Are the accounts safe to use?</h4>
+                                    <i class="ri-arrow-down-s-line text-2xl text-orange-500"></i>
+                                </div>
+                            </button>
+
+                            <div class="relative max-h-0 overflow-hidden rounded-b-lg bg-orange-50/30 transition-all duration-500" 
+                                x-ref="container3" x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''">
+                                <div class="p-6">
+                                    <p class="text-slate-500">
+                                        Yes, all accounts are verified and checked before being listed. However, we recommend changing the password after purchase for added security.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="relative mb-5">
+                            <button type="button" class="w-full rounded-lg bg-orange-50 px-8 py-6 text-left" 
+                                @click="selected !== 4 ? selected = 4 : selected = null">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="font-medium text-slate-600">What happens if I don’t receive my account details?</h4>
+                                    <i class="ri-arrow-down-s-line text-2xl text-orange-500"></i>
+                                </div>
+                            </button>
+
+                            <div class="relative max-h-0 overflow-hidden rounded-b-lg bg-orange-50/30 transition-all duration-500" 
+                                x-ref="container4" x-bind:style="selected == 4 ? 'max-height: ' + $refs.container4.scrollHeight + 'px' : ''">
+                                <div class="p-6">
+                                    <p class="text-slate-500">
+                                        If you do not receive the details after payment, please check your spam folder. If the issue persists, contact support for assistance.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
 
 
-<!-- ====== END footer ====== -->
+
+    <!-- ====== END FAQ ====== -->
+
+    <!-- ====== Contact ====== -->
+
+    <section id="contact" class="relative overflow-hidden py-16">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+        <div class="flex flex-wrap lg:items-center">
+            <!-- Left Info -->
+            <div class="w-full px-4 md:w-1/2 xl:w-6/12">
+                <div class="mb-12 max-w-[570px] lg:mb-0">
+                    <span class="font-medium text-orange-500">Contact Us</span>
+                    <h1 class="mb-3 text-2xl font-bold text-slate-700 sm:text-3xl">Get in Touch with Logs Place</h1>
+                    <p class="text-slate-500 mb-8">Have questions or need support? Reach out to us for assistance with your account purchases.</p>
+                    
+                    <!-- Address -->
+                    <div class="mb-6 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-orange-500/10">
+                        <div class="mr-6 flex h-[50px] w-[50px] items-center justify-center rounded-full bg-orange-500 bg-opacity-10 text-orange-500">
+                            <i class="ri-map-pin-line text-2xl"></i>
+                        </div>
+                        <div class="w-full">
+                            <h4 class="mb-1 text-lg font-semibold text-slate-700">Our Location</h4>
+                            <p class="text-base text-slate-500">4236 Woodland Terrace, Sacramento, California</p>
+                        </div>
+                    </div>
+                    <!-- Phone -->
+                    <div class="mb-6 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-orange-500/10">
+                        <div class="mr-6 flex h-[50px] w-[50px] items-center justify-center rounded-full bg-orange-500 bg-opacity-10 text-orange-500">
+                            <i class="ri-phone-line text-2xl"></i>
+                        </div>
+                        <div class="w-full">
+                            <h4 class="mb-1 text-lg font-semibold text-slate-700">Phone Number</h4>
+                            <p class="text-base text-slate-500">(+1) 234 567 8912</p>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="mb-6 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-orange-500/10">
+                        <div class="mr-6 flex h-[50px] w-[50px] items-center justify-center rounded-full bg-orange-500 bg-opacity-10 text-orange-500">
+                            <i class="ri-mail-line text-2xl"></i>
+                        </div>
+                        <div class="w-full">
+                            <h4 class="mb-1 text-lg font-semibold text-slate-700">Email Address</h4>
+                            <p class="text-base text-slate-500">support@logsplace.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Image -->
+            <div class="w-full px-4 md:w-1/2 xl:w-6/12 items-center justify-center hidden md:block">
+                <img src="{% static 'images/img6.jpg' %}" alt="FAQ Image" class="w-full h-auto max-h-[500px] object-cover">
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- ====== footer ====== -->
+
+    <footer class="bg-gray-900 text-gray-300 pt-16">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+
+        <!-- Footer Top -->
+        <div class="container mx-auto gap-10 px-3 grid grid-cols-1 md:grid-cols-3  md:mb-10">
+            <!-- Column 1 -->
+            <div class="">
+                <h4 class="text-white text-2xl font-semibold mb-4">About Us</h4>
+                <p class="text-gray-400 leading-relaxed">
+                    Logs Place is your trusted source for high-quality social media accounts. We ensure credibility, security, and fast delivery.
+                </p>
+            </div>
+
+            <!-- Column 2 -->
+            <div>
+                <h4 class="text-white text-2xl font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="#home" class="hover:text-orange-500 transition-all">Home</a></li>
+                    <li><a href="#about" class="hover:text-orange-500 transition-all">About</a></li>
+                    <li><a href="#services" class="hover:text-orange-500 transition-all">Services</a></li>
+                    <li><a href="#faq" class="hover:text-orange-500 transition-all">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div>
+                <h4 class="text-white text-2xl font-semibold mb-4">Contact Us</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                        <i class="ri-map-pin-line text-orange-500 text-xl"></i>
+                        <span>123 Market Street, Lagos, Nigeria</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="ri-mail-line text-orange-500 text-xl"></i>
+                        <span>info@logsplace.com</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="ri-phone-line text-orange-500 text-xl"></i>
+                        <span>+234 814 310 7814</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Footer Top -->
+
+        <!-- Footer Bottom -->
+        <div class="flex flex-col justify-between border-t py-8 sm:flex-row">
+            <p class="text-gray-400">&copy; 2025 Logs Place. All Rights Reserved.</p>
+            <div class="flex justify-center gap-6 mt-4">
+                <a href="#" class="text-gray-400 hover:text-orange-500 text-2xl"><i class="ri-facebook-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-orange-500 text-2xl"><i class="ri-twitter-x-line"></i></a>
+                <a href="#" class="text-gray-400 hover:text-orange-500 text-2xl"><i class="ri-instagram-fill"></i></a>
+            </div>
+        </div>
+        <!-- End Footer Bottom -->
+
+    </div>
+    </footer>
+
+
+    <!-- ====== END footer ====== -->
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 

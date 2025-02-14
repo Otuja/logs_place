@@ -106,12 +106,23 @@
 
 
 
-const sr = ScrollReveal({
-  origin: 'top',
-  distance:  '60px',
-  duration: 3000,
-  delay: 300,
-  reset: True
-})
+document.addEventListener("DOMContentLoaded", function () {
+  ScrollReveal().reveal('.hero__text', {
+      duration: 1000,
+      origin: 'left',
+      distance: '50px',
+      delay: 200,
+      easing: 'ease-in-out',
+      reset: True
+  });
 
-sr.reveal('.hero__text');
+  ScrollReveal().reveal('.hero__img', {
+      duration: 1000,
+      origin: 'right',
+      distance: '50px',
+      delay: 400,
+      easing: 'ease-in-out',
+      reset: True
+  });
+});
+
