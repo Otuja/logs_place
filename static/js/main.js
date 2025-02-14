@@ -107,12 +107,11 @@
 
 
 const sr = ScrollReveal({
-  origin: 'bottom',
+  origin: 'top',
   distance:  '60px',
   duration: 3000,
-  delay: 600,
-  // reset: True
+  delay: 300,
+  reset: True
 })
 
-sr.reveal('.hero__text', {origin: 'top'});
-sr.reveal('.hero__img');
+sr.reveal('.hero__text');
