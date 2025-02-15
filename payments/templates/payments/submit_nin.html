@@ -3,9 +3,11 @@
 <h2>Submit Your NIN</h2>
 <p>To generate your virtual account, please provide your NIN.</p>
 
-<form method="POST">
+<form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-success">Submit</button>
+    <label>Enter NIN:</label>
+    {{form.nin}}
+    <button type="submit">Verify</button>
 </form>
+
 {% endblock %}

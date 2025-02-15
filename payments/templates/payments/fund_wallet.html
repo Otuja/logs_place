@@ -4,49 +4,49 @@
 
 <div class="px-5 md:px-20">
     <div class="max-w-lg mx-auto bg-white rounded-2xl shadow-lg px-3 py-5 md:px-6 md:py-10">
-        <!-- Header -->
         <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">Fund Your Wallet</h2>
-        
-        <!-- Bank Details Card -->
-        <div class="bg-gradient-to-r from-orange-500 to-orange-700 text-white p-6 rounded-xl shadow-md">
-            <p class="text-lg">Bank Name</p>
-            <p class="text-xl font-semibold">{{ bank_name }}</p>
 
-            <p class="text-lg mt-3">Account Name</p>
-            <p class="text-xl font-semibold">{{ account_name }}</p>
+        {% if account_number %}
+            <!-- Bank Details Display -->
+            <div class="bg-gradient-to-r from-orange-500 to-orange-700 text-white p-6 rounded-xl shadow-md">
+                <p class="text-lg">Bank Name</p>
+                <p class="text-xl font-semibold">{{ bank_name }}</p>
 
-            <p class="text-lg mt-3">Account Number</p>
-            <div class="flex items-center justify-between">
-                <p id="account-number" class="text-2xl font-bold tracking-widest">{{ account_number }}</p>
-                <!-- Copy Button -->
-                <button id="copy-btn" class="bg-white text-orange-600 px-3 py-1 rounded-full text-sm font-semibold hover:bg-gray-100 transition">
-                    <i class="ri-file-copy-fill md:text-2xl"></i>
-                </button>
+                <p class="text-lg mt-3">Account Number</p>
+                <div class="flex items-center justify-between">
+                    <p id="account-number" class="text-2xl font-bold tracking-widest">{{ account_number }}</p>
+                    <button id="copy-btn" class="bg-white text-orange-600 px-3 py-1 rounded-full text-sm font-semibold hover:bg-gray-100 transition">
+                        <i class="ri-file-copy-fill md:text-2xl"></i>
+                    </button>
+                </div>
             </div>
-        </div>
 
-        <!-- Instruction -->
-        <p class="text-gray-600 text-center mt-4">
-            Transfer funds to this account, and it will be credited automatically.
-        </p>
+            <p class="text-gray-600 text-center mt-4">
+                Transfer funds to this account, and it will be credited automatically.
+            </p>
 
-        <!-- Fund Wallet Button (Optional) -->
+        {% else %}
+            <!-- Show NIN Form -->
+            <p class="text-gray-600 text-center mb-4">
+                Please enter your NIN to generate a virtual account.
+            </p>
+
+            <form method="post" class="space-y-4">
+                {% csrf_token %}
+                <label for="{{ form.nin.id_for_label }}" class="block text-gray-700 font-semibold">
+                    {{ form.nin.label }}
+                </label>
+                {{ form.nin }}
+                <button type="submit" class="w-full bg-orange-600 text-white py-3 px-4 rounded-full hover:bg-orange-700 transition">
+                    Submit NIN & Generate Account
+                </button>
+            </form>
+        {% endif %}
+
         <a href="{% url 'wallet_view' %}" class="mt-6 block text-center bg-orange-600 text-white font-semibold py-3 px-4 rounded-full hover:bg-orange-700 transition">
             Go to Wallet
         </a>
     </div>
 </div>
 
-
-
 {% endblock %}
-
-
-
-
-<!-- from payments.models import Wallet
-from django.contrib.auth.models import User
-
-user = User.objects.get(username="Ebube")
-user.wallet.deposit(2000)
-print(f"New Balance: {user.wallet.balance}") -->

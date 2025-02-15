@@ -18,45 +18,29 @@ logger = logging.getLogger(__name__)
 def wallet_view(request):
     """Redirects user to fund wallet if NIN is needed."""
     wallet, _ = Wallet.objects.get_or_create(user=request.user)
-
-    # If user has no virtual account, ask for NIN first
-    if not wallet.virtual_account_number:
-        return redirect("submit_nin")
-
     return render(request, "payments/wallet.html", {"wallet": wallet})
 
 
 @login_required
 def fund_wallet(request):
-    """Show virtual account details if already generated."""
-    wallet, _ = Wallet.objects.get_or_create(user=request.user)
-
-    # Ensure user is redirected to submit NIN if no virtual account exists
-    if not wallet.virtual_account_number:
-        return redirect("submit_nin")
-
-    return render(request, "payments/fund_wallet.html", {
-        "account_number": wallet.virtual_account_number,
-        "bank_name": wallet.bank_name,
-        "account_name": request.user.get_full_name() or "Logs Place User",
-    })
-
-
-@login_required
-def submit_nin(request):
-    """Handles NIN input and generates virtual account."""
+    """Handles both NIN submission and showing the virtual account."""
     user = request.user
     wallet, _ = Wallet.objects.get_or_create(user=user)
 
-    # If the user already has a virtual account, redirect to fund wallet page
     if wallet.virtual_account_number:
-        return redirect("fund_wallet")
+        # If the virtual account exists, show the details
+        return render(request, "payments/fund_wallet.html", {
+            "account_number": wallet.virtual_account_number,
+            "bank_name": wallet.bank_name,
+            "account_name": user.get_full_name() or "Logs Place User",
+        })
 
+    # If no virtual account, request NIN
     if request.method == "POST":
-        form = NINForm(request.POST, instance=user)
+        form = NINForm(request.POST)
         if form.is_valid():
-            user.nin = form.cleaned_data["nin"]
-            user.save()
+            wallet.nin = form.cleaned_data["nin"]
+            wallet.save()
 
             # Generate virtual account
             monnify = MonnifyService()
@@ -64,26 +48,25 @@ def submit_nin(request):
 
             if "error" in response:
                 messages.error(request, "Failed to generate account. Try again.")
-                return redirect("submit_nin")
+                return redirect("fund_wallet")
 
             account_details = response.get("responseBody", {})
 
-            # Ensure account details exist before saving
             if not account_details.get("accountNumber"):
                 messages.error(request, "Invalid response from Monnify. Try again.")
-                return redirect("submit_nin")
+                return redirect("fund_wallet")
 
             wallet.virtual_account_number = account_details["accountNumber"]
             wallet.bank_name = account_details["bankName"]
-            wallet.save()  # ✅ Ensure it gets saved
+            wallet.save()
 
             messages.success(request, "Your virtual account has been created!")
-
-            return redirect("fund_wallet")  # ✅ Redirect to funding page
+            return redirect("fund_wallet")  # Reload to show account details
     else:
-        form = NINForm(instance=user)
+        form = NINForm()
 
-    return render(request, "payments/submit_nin.html", {"form": form})
+    return render(request, "payments/fund_wallet.html", {"form": form})
+
 
 @login_required
 def verify_transaction(request, transaction_reference):

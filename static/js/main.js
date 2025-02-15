@@ -1,108 +1,19 @@
-// // Get the necessary DOM elements
-// const hamburger = document.querySelector('#hamburger');
-// const navMenu = document.querySelector('#nav-menu');
-// const navClose = document.querySelector('#nav-close');
-// const navLinks = document.querySelectorAll('.nav-links');
+document.addEventListener("DOMContentLoaded", function () {
+  var swiper = new Swiper(".swiper", {
+      loop: true,
+      spaceBetween: 20,
+      slidesPerView: 1,
+      pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+      },
+      autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+      },
 
-// // Function to show the navigation menu
-// const showMenu = () => {
-//   navMenu.classList.remove('hidden');
-// };
-
-// // Function to hide the navigation menu
-// const hideMenu = () => {
-//   navMenu.classList.add('hidden');
-// };
-
-// // Event listener to show the menu when hamburger is clicked
-// hamburger.addEventListener('click', (event) => {
-//   event.preventDefault(); // Prevent default anchor behavior
-//   event.stopPropagation(); // Prevent event bubbling
-//   showMenu();
-// });
-
-// // Event listener to hide the menu when close icon is clicked
-// navClose.addEventListener('click', (event) => {
-//   event.preventDefault();  
-//   event.stopPropagation(); 
-//   hideMenu();
-// });
-
-// // Close the menu when clicking outside
-// document.addEventListener('click', (event) => {
-//   if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
-//     hideMenu();
-//   }
-// });
-
-// // close the menu when u click on a link
-// navLinks.forEach(link => {
-//   link.addEventListener('click', (event) => {
-//     // event.preventDefault(); 
-//     hideMenu();
-//   });
-// });
-
-
-// // scroll navbar
-// window.addEventListener('scroll', function () {
-//     const navbar = document.getElementById('navbar');
-//     if (window.scrollY > 50) {
-//         navbar.classList.add('bg-white', 'shadow-md');
-//         navbar.classList.remove('bg-transparent');
-//     } else {
-//         navbar.classList.remove('bg-white', 'shadow-md');
-//         navbar.classList.add('bg-transparent');
-//     }
-// });
-
-
-// // scrollcsection link 
-// const activeLink = () => {
-//     const sections = document.querySelectorAll('section')
-//     const navLinks = document.querySelectorAll('.nav-links')
-
-//     let current = "home"
-
-//     sections.forEach(section => {
-//         const sectionTop = section.offsetTop
-
-//         if (this.scrollY > sectionTop - 60) {
-//             current = section.getAttribute('id')
-//         }
-//     })
-
-//     navLinks.forEach(item => {
-//         item.classList.remove("active")
-
-//         if(item.href.includes(current)){
-//             item.classList.add("active")
-//         }
-//     })
-// }
-
-// window.addEventListener("scroll", activeLink)
-
-
-
-// // swiper
-// const swiper = new Swiper('.swiper', {
-//   // Optional parameters
-//   speed: 400,
-//   spaceBetween: 30,
-//   autoplay: {
-//     delay: 3000,   // Auto slide every 3 seconds
-//     disableOnInteraction: false, // Continue autoplay after user interaction
-//   },
-
-//   // If we need pagination
-//   pagination: {
-//     el: '.swiper-pagination',
-//     clickable: true,
-//   },
-
-//   grabCursor: true,
-// })
+  });
+});
 
 
 
@@ -113,16 +24,191 @@ document.addEventListener("DOMContentLoaded", function () {
       distance: '50px',
       delay: 200,
       easing: 'ease-in-out',
-      reset: True
+      reset: true
   });
 
   ScrollReveal().reveal('.hero__img', {
       duration: 1000,
       origin: 'right',
       distance: '50px',
+      delay: 600,
+      easing: 'ease-in-out',
+      reset: true
+  });
+
+   // Text Section (fade in from left)
+   ScrollReveal().reveal('.about__text', {
+    duration: 1000,
+    origin: 'left',
+    distance: '50px',
+    delay: 200,
+    easing: 'ease-in-out',
+    reset: true,
+    mobile: true
+  });
+
+  // Features (staggered fade-in from bottom)
+  ScrollReveal().reveal('.about__feature', {
+      duration: 800,
+      origin: 'bottom',
+      distance: '30px',
+      delay: 300,
+      easing: 'ease-in-out',
+      reset: true,
+      interval: 200, // Stagger effect
+      mobile: true
+  });
+
+  // Image (fade in from right)
+  ScrollReveal().reveal('.about__img', {
+      duration: 1000,
+      origin: 'right',
+      distance: '50px',
       delay: 400,
       easing: 'ease-in-out',
-      reset: True
+      reset: true,
+      mobile: true
+  });
+
+  ScrollReveal().reveal('.service__heading', {
+    duration: 1000,
+    origin: 'top',
+    distance: '30px',
+    delay: 200,
+    easing: 'ease-in-out',
+    reset: true,
+    mobile: true
+  });
+
+  // Service Cards (staggered zoom-in effect)
+  ScrollReveal().reveal('.service__card', {
+      duration: 800,
+      scale: 0.85,
+      opacity: 0,
+      delay: 300,
+      easing: 'ease-in-out',
+      reset: true,
+      interval: 150, // Stagger effect
+      mobile: true
+  });
+
+  ScrollReveal().reveal('.features-heading', {
+    origin: 'top',
+    distance: '50px',
+    duration: 1000,
+    delay: 200,
+    easing: 'ease-in-out',
+    reset: true
+  });
+
+  ScrollReveal().reveal('.features-img', {
+      origin: 'left',
+      distance: '80px',
+      duration: 1200,
+      delay: 300,
+      easing: 'ease-in-out',
+      reset: true
+  });
+
+  ScrollReveal().reveal('.feature-box', {
+      origin: 'bottom',
+      distance: '60px',
+      duration: 1000,
+      delay: 200,
+      interval: 200,
+      easing: 'ease-in-out',
+      reset: true
+  });
+
+  ScrollReveal().reveal('.footer-top', {
+    origin: 'bottom',
+    distance: '50px',
+    duration: 1200,
+    delay: 200,
+    easing: 'ease-in-out',
+    reset: true
+  });
+
+  ScrollReveal().reveal('.footer-bottom', {
+      origin: 'bottom',
+      distance: '50px',
+      duration: 1000,
+      delay: 400,
+      easing: 'ease-in-out',
+      reset: true
+  });
+
+  ScrollReveal().reveal('.footer-links', {
+      origin: 'left',
+      distance: '40px',
+      duration: 1200,
+      delay: 300,
+      interval: 150,
+      easing: 'ease-in-out',
+      reset: true
+  });
+
+  ScrollReveal().reveal('.footer-icons', {
+      scale: 0.8,
+      duration: 1000,
+      delay: 500,
+      easing: 'ease-in-out',
+      reset: true
+  });
+
+  ScrollReveal().reveal("#contact .w-full.px-4.md\\:w-1\\/2", {
+    delay: 200,
+    distance: "50px",
+    origin: "left",
+    duration: 1000,
+    easing: "ease-in-out",
+    reset: true
+  });
+
+  ScrollReveal().reveal("#contact .w-full.px-4.md\\:w-1\\/2.hidden", {
+      delay: 300,
+      distance: "50px",
+      origin: "right",
+      duration: 1000,
+      easing: "ease-in-out",
+      reset: true
+  });
+
+  ScrollReveal().reveal("#contact .flex.w-full.max-w-\\[420px\\]", {
+      delay: 400,
+      distance: "30px",
+      origin: "bottom",
+      duration: 1000,
+      easing: "ease-in-out",
+      interval: 150, // Staggers the animations
+      reset: true
+  });
+
+  ScrollReveal().reveal("#faq .mb-5.sm\\:mb-10", {
+    delay: 200,
+    distance: "40px",
+    origin: "top",
+    duration: 1000,
+    easing: "ease-in-out",
+    reset: true
+  });
+
+  ScrollReveal().reveal("#faq .md\\:w-5\\/12 img", {
+      delay: 300,
+      distance: "50px",
+      origin: "left",
+      duration: 1000,
+      easing: "ease-in-out",
+      reset: true
+  });
+
+  ScrollReveal().reveal("#faq .md\\:w-6\\/12 li", {
+      delay: 400,
+      distance: "30px",
+      origin: "bottom",
+      duration: 1000,
+      easing: "ease-in-out",
+      interval: 150, // Staggers the animations
+      reset: true
   });
 });
-

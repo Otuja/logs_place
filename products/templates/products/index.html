@@ -121,41 +121,42 @@
 
 
     <section class="pb-16">
-    <div class="mx-auto max-w-7xl px-8 md:px-6">
-        <!-- heading text -->
-        <div class="mb-5 sm:mb-10 text-center md:text-left">
-            <span class="font-medium text-orange-500">Our Features</span>
-            <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">What Makes Logs Place Stand Out</h1>
-        </div>
-        <!-- features img -->
-        <div class="md:flex md:justify-between md:gap-6 xl:gap-10 items-center">
-            <div class="mb-5 max-h-[500px] overflow-hidden rounded-lg md:mb-0 md:w-5/12">
-                <img src="{% static 'images/img2.jpg' %}" alt="Logs Place features" class="h-full scale-110 sm:w-full sm:object-cover">
+        <div class="mx-auto max-w-7xl px-8 md:px-6">
+            <!-- heading text -->
+            <div class="mb-5 sm:mb-10 text-center md:text-left features-heading">
+                <span class="font-medium text-orange-500">Our Features</span>
+                <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">What Makes Logs Place Stand Out</h1>
             </div>
-            <div class="md:w-7/12">
-                <div class="mb-12 flex flex-col">
-                    <p class="mb-3 text-slate-500">Logs Place offers instant access to high-quality, verified social media accounts. We provide a secure, seamless, and efficient buying experience.</p>
-                    <p class="mb-8 text-slate-500">Get verified accounts quickly, avoid long verification processes, and enjoy secure transactions. Whether you need accounts for business or personal use, we have you covered.</p>
-                    <a href="{% url 'login' %}" class="w-full rounded-md bg-orange-500 px-8 py-2.5 font-semibold text-white shadow-md hover:bg-orange-600 duration-200 md:w-max">Get Started</a>
+            <!-- features img -->
+            <div class="md:flex md:justify-between md:gap-6 xl:gap-10 items-center">
+                <div class="mb-5 max-h-[500px] overflow-hidden rounded-lg md:mb-0 md:w-5/12 features-img">
+                    <img src="{% static 'images/img2.jpg' %}" alt="Logs Place features" class="h-full scale-110 sm:w-full sm:object-cover">
                 </div>
-                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
-                        <i class="ri-shield-check-line text-4xl text-orange-500 mb-3"></i>
-                        <h3 class="text-lg font-bold text-slate-600">Secure Transactions</h3>
+                <div class="md:w-7/12">
+                    <div class="mb-12 flex flex-col">
+                        <p class="mb-3 text-slate-500">Logs Place offers instant access to high-quality, verified social media accounts. We provide a secure, seamless, and efficient buying experience.</p>
+                        <p class="mb-8 text-slate-500">Get verified accounts quickly, avoid long verification processes, and enjoy secure transactions. Whether you need accounts for business or personal use, we have you covered.</p>
+                        <a href="{% url 'login' %}" class="w-full rounded-md bg-orange-500 px-8 py-2.5 font-semibold text-white shadow-md hover:bg-orange-600 duration-200 md:w-max">Get Started</a>
                     </div>
-                    <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
-                        <i class="ri-flashlight-line text-4xl text-orange-500 mb-3"></i>
-                        <h3 class="text-lg font-bold text-slate-600">Instant Delivery</h3>
-                    </div>
-                    <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
-                        <i class="ri-customer-service-2-line text-4xl text-orange-500 mb-3"></i>
-                        <h3 class="text-lg font-bold text-slate-600">24/7 Support</h3>
-                    </div>
-                </div>            
+                    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg feature-box">
+                            <i class="ri-shield-check-line text-4xl text-orange-500 mb-3"></i>
+                            <h3 class="text-lg font-bold text-slate-600">Secure Transactions</h3>
+                        </div>
+                        <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg feature-box">
+                            <i class="ri-flashlight-line text-4xl text-orange-500 mb-3"></i>
+                            <h3 class="text-lg font-bold text-slate-600">Instant Delivery</h3>
+                        </div>
+                        <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg feature-box">
+                            <i class="ri-customer-service-2-line text-4xl text-orange-500 mb-3"></i>
+                            <h3 class="text-lg font-bold text-slate-600">24/7 Support</h3>
+                        </div>
+                    </div>            
+                </div>
             </div>
         </div>
-    </div>
     </section>
+    
 
 
     <!-- ====== about ====== -->
@@ -163,7 +164,7 @@
     <section id="about" class="py-16">
     <div class="mx-auto max-w-7xl px-8 md:px-6">
         <div class="md:flex md:justify-between md:gap-6">
-            <div class="md:w-6/12">
+            <div class="md:w-6/12 about__text">
                 <!-- heading text -->
                 <div class="mb-5 sm:mb-10">
                     <span class="font-medium text-orange-500">About Us</span>
@@ -171,19 +172,19 @@
                 </div>
                 <p class="text-slate-500 mb-6">Logs Place is a secure and reliable platform for purchasing pre-verified social media accounts. Whether you need accounts for marketing, business, or personal use, we ensure fast delivery and guaranteed quality.</p>
                 <ul>
-                    <li class="mb-6 flex items-center">
+                    <li class="mb-6 flex items-center about__feature">
                         <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-orange-500 text-white">
                             <i class="ri-lock-2-line"></i>
                         </div>
                         <p class="ml-4 max-w-md font-medium text-slate-600">Safe and secure transactions to ensure customer satisfaction.</p>
                     </li>
-                    <li class="mb-6 flex items-center">
+                    <li class="mb-6 flex items-center about__feature">
                         <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-orange-500 text-white">
                             <i class="ri-shopping-bag-line"></i>
                         </div>
                         <p class="ml-4 max-w-md font-medium text-slate-600">A wide selection of accounts across different platforms.</p>
                     </li>
-                    <li class="mb-6 flex items-center">
+                    <li class="mb-6 flex items-center about__feature">
                         <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-orange-500 text-white">
                             <i class="ri-mail-send-line"></i>
                         </div>
@@ -194,7 +195,7 @@
             </div>
 
             <!-- about img -->
-            <div class="mt-8 flex justify-center md:mt-0 md:w-5/12">
+            <div class="mt-8 flex justify-center md:mt-0 md:w-5/12 about__img">
                 <img src="{% static 'images/img5.jpg' %}" alt="about img" class="max-h-[500px] md:max-h-max">
             </div>
         </div>
@@ -206,7 +207,7 @@
     <section id="service" class="py-16">
         <div class="mx-auto max-w-7xl px-8 md:px-6">
             <!-- heading text -->
-            <div class="mb-10 text-center">
+            <div class="mb-10 text-center service__heading">
                 <span class="font-medium text-orange-500">Our Services</span>
                 <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">What We Offer</h1>
                 <p class="mx-auto max-w-2xl mt-2 text-slate-500">
@@ -216,37 +217,37 @@
 
             <!-- box wrapper -->
             <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 xl:gap-8">
-                <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
+                <div class="group service__card flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
                     <i class="ri-shield-check-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
                     <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Secure Transactions</h4>
                     <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">All purchases are protected with industry-standard security.</p>
                 </div>
 
-                <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
+                <div class="group service__card flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
                     <i class="ri-flashlight-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
                     <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Instant Delivery</h4>
                     <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Receive account details instantly after successful payment.</p>
                 </div>
 
-                <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
+                <div class="group service__card flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
                     <i class="ri-customer-service-2-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
                     <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">24/7 Support</h4>
                     <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Get round-the-clock assistance from our support team.</p>
                 </div>
 
-                <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
+                <div class="group service__card flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
                     <i class="ri-wallet-3-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
                     <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Wallet System</h4>
                     <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Easily fund your wallet for hassle-free transactions.</p>
                 </div>
 
-                <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
+                <div class="group service__card flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
                     <i class="ri-shield-star-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
                     <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Verified Accounts</h4>
                     <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Access only authentic and verified social media accounts.</p>
                 </div>
 
-                <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
+                <div class="group service__card flex cursor-pointer flex-col items-center rounded-xl border border-orange-500/10 bg-white px-5 py-8 shadow-lg shadow-orange-300/10 duration-200 hover:bg-orange-500">
                     <i class="ri-exchange-dollar-line text-[55px] text-orange-500 duration-200 group-hover:text-white"></i>
                     <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Affordable Pricing</h4>
                     <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-orange-200">Get competitive prices with great value for your money.</p>
@@ -486,63 +487,63 @@
     <!-- ====== footer ====== -->
 
     <footer class="bg-gray-900 text-gray-300 pt-16">
-    <div class="mx-auto max-w-7xl px-8 md:px-6">
-
-        <!-- Footer Top -->
-        <div class="container mx-auto gap-10 px-3 grid grid-cols-1 md:grid-cols-3  md:mb-10">
-            <!-- Column 1 -->
-            <div class="">
-                <h4 class="text-white text-2xl font-semibold mb-4">About Us</h4>
-                <p class="text-gray-400 leading-relaxed">
-                    Logs Place is your trusted source for high-quality social media accounts. We ensure credibility, security, and fast delivery.
-                </p>
+        <div class="mx-auto max-w-7xl px-8 md:px-6">
+            <!-- Footer Top -->
+            <div class="container mx-auto gap-10 px-3 grid grid-cols-1 md:grid-cols-3 md:mb-10 footer-top">
+                <!-- Column 1 -->
+                <div class="">
+                    <h4 class="text-white text-2xl font-semibold mb-4">About Us</h4>
+                    <p class="text-gray-400 leading-relaxed">
+                        Logs Place is your trusted source for high-quality social media accounts. We ensure credibility, security, and fast delivery.
+                    </p>
+                </div>
+    
+                <!-- Column 2 -->
+                <div class="footer-links">
+                    <h4 class="text-white text-2xl font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="hover:text-orange-500 transition-all">Home</a></li>
+                        <li><a href="#about" class="hover:text-orange-500 transition-all">About</a></li>
+                        <li><a href="#services" class="hover:text-orange-500 transition-all">Services</a></li>
+                        <li><a href="#faq" class="hover:text-orange-500 transition-all">FAQ</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Column 3 -->
+                <div class="footer-links">
+                    <h4 class="text-white text-2xl font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="ri-map-pin-line text-orange-500 text-xl"></i>
+                            <span>123 Market Street, Lagos, Nigeria</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ri-mail-line text-orange-500 text-xl"></i>
+                            <span>info@logsplace.com</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ri-phone-line text-orange-500 text-xl"></i>
+                            <span>+234 814 310 7814</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <!-- Column 2 -->
-            <div>
-                <h4 class="text-white text-2xl font-semibold mb-4">Quick Links</h4>
-                <ul class="space-y-3">
-                    <li><a href="#home" class="hover:text-orange-500 transition-all">Home</a></li>
-                    <li><a href="#about" class="hover:text-orange-500 transition-all">About</a></li>
-                    <li><a href="#services" class="hover:text-orange-500 transition-all">Services</a></li>
-                    <li><a href="#faq" class="hover:text-orange-500 transition-all">FAQ</a></li>
-                </ul>
+            <!-- End Footer Top -->
+    
+            <!-- Footer Bottom -->
+            <div class="flex flex-col justify-between border-t py-8 sm:flex-row footer-bottom">
+                <p class="text-gray-400">&copy; 2025 Logs Place. All Rights Reserved.</p>
+                <div class="flex justify-center gap-6 mt-4 footer-icons">
+                    <a href="#" class="text-gray-400 hover:text-orange-500 text-2xl"><i class="ri-facebook-fill"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-orange-500 text-2xl"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-orange-500 text-2xl"><i class="ri-instagram-fill"></i></a>
+                </div>
             </div>
-
-            <!-- Column 3 -->
-            <div>
-                <h4 class="text-white text-2xl font-semibold mb-4">Contact Us</h4>
-                <ul class="space-y-3">
-                    <li class="flex items-start gap-3">
-                        <i class="ri-map-pin-line text-orange-500 text-xl"></i>
-                        <span>123 Market Street, Lagos, Nigeria</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="ri-mail-line text-orange-500 text-xl"></i>
-                        <span>info@logsplace.com</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="ri-phone-line text-orange-500 text-xl"></i>
-                        <span>+234 814 310 7814</span>
-                    </li>
-                </ul>
-            </div>
+            <!-- End Footer Bottom -->
+    
         </div>
-        <!-- End Footer Top -->
-
-        <!-- Footer Bottom -->
-        <div class="flex flex-col justify-between border-t py-8 sm:flex-row">
-            <p class="text-gray-400">&copy; 2025 Logs Place. All Rights Reserved.</p>
-            <div class="flex justify-center gap-6 mt-4">
-                <a href="#" class="text-gray-400 hover:text-orange-500 text-2xl"><i class="ri-facebook-fill"></i></a>
-                <a href="#" class="text-gray-400 hover:text-orange-500 text-2xl"><i class="ri-twitter-x-line"></i></a>
-                <a href="#" class="text-gray-400 hover:text-orange-500 text-2xl"><i class="ri-instagram-fill"></i></a>
-            </div>
-        </div>
-        <!-- End Footer Bottom -->
-
-    </div>
     </footer>
+    
 
 
     <!-- ====== END footer ====== -->

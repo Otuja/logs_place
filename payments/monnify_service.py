@@ -54,7 +54,6 @@ class MonnifyService:
                 "requestSuccessful": True,
                 "responseBody": {
                     "accountNumber": wallet.virtual_account_number,
-                    "accountName": wallet.account_name,
                     "bankName": wallet.bank_name
                 }
             }
@@ -63,7 +62,7 @@ class MonnifyService:
         if not token:
             return {"error": "Failed to authenticate with Monnify"}
 
-        url = f"{cls.BASE_URL}/api/v1/bank-transfer/reserved-accounts"
+        url = f"{cls.BASE_URL}/api/v2/bank-transfer/reserved-accounts"
         headers = {
             "Authorization": f"Bearer {token}",
             "Content-Type": "application/json"
@@ -91,14 +90,12 @@ class MonnifyService:
                 account_info = response_data.get("responseBody", {})
 
                 wallet.virtual_account_number = account_info.get("accountNumber", "")
-                wallet.account_name = account_info.get("accountName", "Unknown Account")
                 wallet.bank_name = account_info.get("bankName", "Unknown Bank")  
 
                 wallet.save()
 
                 return {
                     "accountNumber": wallet.virtual_account_number,
-                    "accountName": wallet.account_name,
                     "bankName": wallet.bank_name,
                 }
             else:
