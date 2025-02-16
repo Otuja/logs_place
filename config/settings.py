@@ -103,6 +103,21 @@ DATABASES = {
 }
 
 
+# # postgres
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'logsmhbi_logsplace_db',   # Your database name
+#         'USER': 'logsmhbi_kenneth',   # Your database username
+#         'PASSWORD': 'Data@me400', # Your database password
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 

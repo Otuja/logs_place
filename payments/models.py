@@ -4,8 +4,8 @@ from django.contrib.auth import get_user_model
 from django.core.mail import send_mail
 import uuid
 from products.models import SocialAccount
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+# from django.db.models.signals import post_save
+# from django.dispatch import receiver
 
 def get_default_user():
     return get_user_model().objects.first().id
@@ -35,11 +35,11 @@ class Wallet(models.Model):
             return True
         return False
 
-# ✅ Automatically create a Wallet when a new User is created
-@receiver(post_save, sender=User)
-def create_user_wallet(sender, instance, created, **kwargs):
-    if created:
-        Wallet.objects.create(user=instance)
+# # ✅ Automatically create a Wallet when a new User is created
+# @receiver(post_save, sender=User)
+# def create_user_wallet(sender, instance, created, **kwargs):
+#     if created:
+#         Wallet.objects.create(user=instance)
 
 class MonnifyTransaction(models.Model):
     STATUS_CHOICES = [
